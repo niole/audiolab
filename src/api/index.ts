@@ -1,4 +1,4 @@
-import { AudioLabelingProject } from '../domain';
+import { AudioLabelingProject } from '../types';
 import annotations from './fixture.json';
 
 export const getProject = async (id: string): Promise<AudioLabelingProject> => {

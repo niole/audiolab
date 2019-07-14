@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { getProject } from '../../api';
 import withDataGetter from '../../containers/withDataGetter';
-import { AudioLabelingProject } from '../../domain';
+import { AudioLabelingProject } from '../../types';
 
 const ParsedAudio = (props: InnerProps) => (
     <div>
