@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Annotation } from '../../types';
 
+const vis = require('vis');
+console.log(vis);
+
 type Props = {
     speakerAnnotations: Annotation[];
     speakerId: number;
