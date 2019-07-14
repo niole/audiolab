@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { getProject } from 'api';
 import withDataGetter from 'containers/withDataGetter';
 import { AudioLabelingProject } from 'types';
-import AudioPlayer from 'views/audioplayer';
+import AudioPlayer from 'views/AudioPlayer';
 import AudioTrack from 'views/parsedaudio/AudioTrack';
 
 /**
