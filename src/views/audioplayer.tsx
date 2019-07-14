@@ -11,7 +11,7 @@ const AudioPlayer: React.SFC<Props> = ({
   setOffsetMillis,
 }) => {
   const onProgress = ({ playedSeconds }: { playedSeconds: number }) =>
-    setOffsetMillis(playedSeconds);
+    setOffsetMillis(playedSeconds * 1e3);
   return (
     <ReactPlayer
       url={audioFileURI}
