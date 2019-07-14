@@ -1,11 +1,12 @@
 import * as React from 'react';
+import withDataGetter from '../../containers/withDataGetter';
 
-export default class ParsedAudio extends React.PureComponent {
-    render() {
-        return (
-            <div>
-                slf
-            </div>
-        );
-    }
-}
+const ParsedAudio = (props: {}) => (
+    <div>
+        slf
+    </div>
+);
+
+export default withDataGetter(
+    async () => ({}) // TODO GET DATA HERE
+)(ParsedAudio);
