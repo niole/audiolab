@@ -1,14 +1,20 @@
 import * as React from 'react';
 import withDataGetter from '../../containers/withDataGetter';
 
-const ParsedAudio = (props: {}) => (
+const ParsedAudio = (props: InnerProps) => (
     <div>
-        slf
+        {props.randomData.map((x: string) => (
+            <div>
+                {x}
+            </div>
+        ))}
     </div>
 );
 
 type OuterProps = {};
-type InnerProps = {};
+type InnerProps = {
+    randomData: string[];
+};
 export default withDataGetter<OuterProps, InnerProps>(
-    async () => ({}) // TODO GET DATA HERE
+    async () => ({ randomData: ['x', 'y']}) // TODO GET DATA HERE
 )(ParsedAudio);
