@@ -2,11 +2,20 @@ import * as React from 'react';
 
 import { getProject } from 'api';
 import withDataGetter from 'containers/withDataGetter';
-import { AudioLabelingProject } from 'types';
+import { Annotation, AudioLabelingProject } from 'types';
 
-const ParsedAudio = (props: InnerProps) => (
+const ParsedAudio = ({ annotations }: InnerProps) => (
     <div>
-        {JSON.stringify(props)}
+        {annotations.map(({
+            text,
+            durationMillis,
+            startOffsetMillis,
+            speakerId,
+        }: Annotation) => (
+            <div>
+                {text}
+            </div>
+        ))}
     </div>
 );
 
