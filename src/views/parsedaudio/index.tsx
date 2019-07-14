@@ -1,20 +1,16 @@
 import * as React from 'react';
+import { getProject } from '../../api';
 import withDataGetter from '../../containers/withDataGetter';
+import { AudioLabelingProject } from '../../domain';
 
 const ParsedAudio = (props: InnerProps) => (
     <div>
-        {props.randomData.map((x: string) => (
-            <div>
-                {x}
-            </div>
-        ))}
+        {JSON.stringify(props)}
     </div>
 );
 
 type OuterProps = {};
-type InnerProps = {
-    randomData: string[];
-};
+type InnerProps = AudioLabelingProject;
 export default withDataGetter<OuterProps, InnerProps>(
-    async () => ({ randomData: ['x', 'y']}) // TODO GET DATA HERE
+    id => getProject('o')
 )(ParsedAudio);

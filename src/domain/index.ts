@@ -1,5 +1,6 @@
 export type AudioLabelingProject = {
   audioFileURI: string;
+  id: string;
   annotations: Annotation[];
 };
 
