@@ -7,6 +7,8 @@ const ParsedAudio = (props: {}) => (
     </div>
 );
 
-export default withDataGetter(
+type OuterProps = {};
+type InnerProps = {};
+export default withDataGetter<OuterProps, InnerProps>(
     async () => ({}) // TODO GET DATA HERE
 )(ParsedAudio);
