@@ -1,4 +1,5 @@
 export type AudioLabelingProject = {
+  startTime: number;
   audioFileURI: string;
   id: string;
   annotations: Annotation[];
@@ -7,6 +8,6 @@ export type AudioLabelingProject = {
 export type Annotation = {
   text: string;
   durationMillis: number;
-  startOffsetMillis: number;
+  startMillis: number;
   speakerId: number;
 }

@@ -9,19 +9,22 @@ const getColor = (index: number): string => {
 };
 
 type Props = {
+    startTime: number;
     offsetMillis: number;
     speakerAnnotations: Annotation[];
 };
 
 let timeline: any = null;
 
-const AudioTrack = ({ offsetMillis, speakerAnnotations }: Props) => {
+const AudioTrack = ({
+    offsetMillis,
+    speakerAnnotations,
+    startTime,
+}: Props) => {
     const timelineRef: React.RefObject<HTMLDivElement> = React.createRef();
 
-    const startOffset = Math.min(...speakerAnnotations.map(x => x.startOffsetMillis));
-
     React.useEffect(() => {
-        timeline && (timeline as any).setCustomTime(startOffset + offsetMillis);
+        timeline && (timeline as any).setCustomTime(offsetMillis + startTime);
     }, [offsetMillis]);
 
     React.useEffect(() => {
@@ -30,22 +33,23 @@ const AudioTrack = ({ offsetMillis, speakerAnnotations }: Props) => {
             // mount timeline
             var items = new vis.DataSet(
                 speakerAnnotations.map((a: Annotation) => ({
-                    id: a.startOffsetMillis,
+                    id: a.startMillis,
                     group: a.speakerId,
                     content: `${a.speakerId} ${a.text}`,
-                    start: a.startOffsetMillis,
-                    end: a.startOffsetMillis + a.durationMillis*1e-2,
+                    start: a.startMillis,
+                    end: a.startMillis + a.durationMillis,
                     style: `background:${getColor(a.speakerId)}`
                 }))
             );
             const groups = Object.keys(groupBy(x => x.speakerId.toString(), speakerAnnotations))
                 .map((x: string, index: number) => ({ id: x }));
             const options = {
+                start: startTime,
             };
             // Create a Timeline
             if (!timeline) {
                 timeline = new vis.Timeline(container, items, groups, options);
-                timeline.addCustomTime(0);
+                timeline.addCustomTime(startTime);
             }
 
             return () => {
@@ -54,7 +58,7 @@ const AudioTrack = ({ offsetMillis, speakerAnnotations }: Props) => {
             };
         }
 
-    }, [!!timelineRef.current, speakerAnnotations]);
+    }, [!!timelineRef.current, speakerAnnotations, startTime]);
     return (
         <div ref={timelineRef} />
     );

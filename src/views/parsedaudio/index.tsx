@@ -13,7 +13,7 @@ import AudioTrack from 'views/parsedaudio/AudioTrack';
  * location for each speaker
  * render each audio bite in order
  */
-const ParsedAudio = ({ audioFileURI, annotations }: InnerProps) => {
+const ParsedAudio = ({ startTime, audioFileURI, annotations }: InnerProps) => {
     const [offsetMillis, setOffsetMillis] = useState(0);
     return (
         <>
@@ -21,8 +21,11 @@ const ParsedAudio = ({ audioFileURI, annotations }: InnerProps) => {
                 audioFileURI={audioFileURI}
                 setOffsetMillis={setOffsetMillis}
             />
-            {offsetMillis}
-            <AudioTrack offsetMillis={offsetMillis} speakerAnnotations={annotations} />
+            <AudioTrack
+                startTime={startTime}
+                offsetMillis={offsetMillis}
+                speakerAnnotations={annotations}
+            />
         </>
     );
 };

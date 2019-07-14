@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import ReactPlayer from 'react-player';
 
+const UPDATE_INTERVAL = 1000/60;
+
 type Props = {
   audioFileURI: string;
   setOffsetMillis: (n:number) => void;
@@ -14,6 +16,7 @@ const AudioPlayer: React.SFC<Props> = ({
     setOffsetMillis(playedSeconds * 1e3);
   return (
     <ReactPlayer
+      progressInterval={UPDATE_INTERVAL}
       url={audioFileURI}
       controls
       height={50}

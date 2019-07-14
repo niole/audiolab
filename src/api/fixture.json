@@ -1,44 +1,123 @@
-[
-  {
-    "text": "welcome to United Healthcare please say or enter your tax ID number or if you're a member say I'm a member",
-    "durationMillis": 600000,
-    "startOffsetMillis": 19918,
-    "speakerId": 1
-  },
-  {
-    "text": "<say-as interpret-as=\"characters\">941156581</say-as>",
-    "durationMillis": 490000,
-    "startOffsetMillis": 22960,
-    "speakerId": 0
-  },
-  {
-    "text": "would you like self service",
-    "durationMillis": 490000,
-    "startOffsetMillis": 33530,
-    "speakerId": 1
-  },
-  {
-    "text": "No",
-    "durationMillis": 490000,
-    "startOffsetMillis": 36257,
-    "speakerId": 0
-  },
-  {
-    "text": "I still didn't get that would you like self-service just say yes or no",
-    "durationMillis": 290000,
-    "startOffsetMillis": 45292,
-    "speakerId": 1
-  },
-  {
-    "text": "no",
-    "durationMillis": 490000,
-    "startOffsetMillis": 50654,
-    "speakerId": 0
-  },
-  {
-    "text": "I still didn't hear you yes or no",
-    "durationMillis": 290000,
-    "startOffsetMillis": 52995,
-    "speakerId": 1
-  }
-]
+{
+  "logRecords": [
+    {
+      "intent": "IvrWelcomeProviderTaxId",
+      "duration": {
+        "seconds": 9,
+        "nanos": 600000000
+      },
+      "callState": "{\"ivr\":true}",
+      "suggestion": {
+        "Text": "\u003csay-as interpret-as=\"characters\"\u003e941156581\u003c/say-as\u003e",
+        "IntentName": "IvrWelcomeProviderTaxId",
+        "CallStateJson": "{\"ivr\":true}"
+      },
+      "text": "welcome to United Healthcare please say or enter your tax ID number or if you're a member say I'm a member",
+      "textSource": "",
+      "isResponse": false,
+      "serverTimestamp": "2019-07-12T22:02:16.918Z"
+    },
+    {
+      "intent": "",
+      "duration": {
+        "seconds": 4,
+        "nanos": 490000000
+      },
+      "callState": "{\"ivr\":true}",
+      "suggestion": {
+        "Text": "",
+        "IntentName": "",
+        "CallStateJson": ""
+      },
+      "text": "\u003csay-as interpret-as=\"characters\"\u003e941156581\u003c/say-as\u003e",
+      "textSource": "suggestion",
+      "isResponse": true,
+      "serverTimestamp": "2019-07-12T22:02:19.96Z"
+    },
+    {
+      "intent": "IvrUnitedSelfService",
+      "duration": {
+        "seconds": 4,
+        "nanos": 490000000
+      },
+      "callState": "{\"ivr\":true}",
+      "suggestion": {
+        "Text": "No",
+        "IntentName": "IvrUnitedSelfService",
+        "CallStateJson": "{\"ivr\":true}"
+      },
+      "text": "would you like self service",
+      "textSource": "",
+      "isResponse": false,
+      "serverTimestamp": "2019-07-12T22:02:30.53Z"
+    },
+    {
+      "intent": "",
+      "duration": {
+        "seconds": 4,
+        "nanos": 490000000
+      },
+      "callState": "{\"ivr\":true}",
+      "suggestion": {
+        "Text": "",
+        "IntentName": "",
+        "CallStateJson": ""
+      },
+      "text": "No",
+      "textSource": "suggestion",
+      "isResponse": true,
+      "serverTimestamp": "2019-07-12T22:02:33.257Z"
+    },
+    {
+      "intent": "DefaultFallback",
+      "duration": {
+        "seconds": 11,
+        "nanos": 290000000
+      },
+      "callState": "{\"ivr\":true}",
+      "suggestion": {
+        "Text": "",
+        "IntentName": "DefaultFallback",
+        "CallStateJson": "{\"ivr\":true}"
+      },
+      "text": "I still didn't get that would you like self-service just say yes or no",
+      "textSource": "",
+      "isResponse": false,
+      "serverTimestamp": "2019-07-12T22:02:42.292Z"
+    },
+    {
+      "intent": "",
+      "duration": {
+        "seconds": 4,
+        "nanos": 490000000
+      },
+      "callState": "",
+      "suggestion": {
+        "Text": "",
+        "IntentName": "",
+        "CallStateJson": ""
+      },
+      "text": "no",
+      "textSource": "keyboard",
+      "isResponse": true,
+      "serverTimestamp": "2019-07-12T22:02:47.654Z"
+    },
+    {
+      "intent": "Affirm",
+      "duration": {
+        "seconds": 7,
+        "nanos": 290000000
+      },
+      "callState": "{\"lastQuestionAction\":\"AskStandardMedicareSuppPlan\",\"ivr\":true}",
+      "suggestion": {
+        "Text": "I would like to know is this a standard Medicare Medigap supplement plan",
+        "IntentName": "Affirm",
+        "CallStateJson": "{\"lastQuestionAction\":\"AskStandardMedicareSuppPlan\",\"ivr\":true}"
+      },
+      "text": "I still didn't hear you yes or no",
+      "textSource": "",
+      "isResponse": false,
+      "serverTimestamp": "2019-07-12T22:02:49.995Z"
+    }
+  ]
+}
