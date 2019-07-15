@@ -35,7 +35,7 @@ const AudioTrack = ({
             // mount timeline
             var items = new vis.DataSet(
                 speakerAnnotations.map((a: Annotation) => ({
-                    id: a.startMillis,
+                    id: a.startMillis, // TODO would be better if this had a unique id that isn't changeable data
                     group: a.speakerId,
                     content: `${a.speakerId} ${a.text}`,
                     start: a.startMillis,
