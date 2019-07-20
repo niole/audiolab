@@ -11,14 +11,17 @@ const handleAnnotationAdjust = async (newAnnotation: Annotation) => {
 };
 
 const ParsedAudio = ({ startTime, audioFileURI, annotations }: InnerProps) => {
+    const [trackControlledOffsetMillis, setTrackOffsetMillis] = useState(0);
     const [offsetMillis, setOffsetMillis] = useState(0);
     return (
         <>
             <AudioPlayer
+                offsetMillis={trackControlledOffsetMillis}
                 audioFileURI={audioFileURI}
                 setOffsetMillis={setOffsetMillis}
             />
             <AudioTrack
+                seek={setTrackOffsetMillis}
                 onAnnotationAdjust={handleAnnotationAdjust}
                 startTime={startTime}
                 offsetMillis={offsetMillis}

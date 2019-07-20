@@ -13,6 +13,7 @@ type Props = {
     offsetMillis: number;
     speakerAnnotations: Annotation[];
     onAnnotationAdjust?: (newAnnotation: Annotation) => Promise<void>;
+    seek?: (newOffsetMillis: number) => void;
 };
 
 let timeline: any = null;
@@ -22,6 +23,7 @@ const AudioTrack = ({
     speakerAnnotations,
     startTime,
     onAnnotationAdjust,
+    seek,
 }: Props) => {
     const timelineRef: React.RefObject<HTMLDivElement> = React.createRef();
 
@@ -83,6 +85,12 @@ const AudioTrack = ({
             if (!timeline) {
                 timeline = new vis.Timeline(container, items, groups, options);
                 timeline.addCustomTime(startTime);
+                timeline.on('timechanged', (event: any) => {
+                    if (seek) {
+                        const newTimeAsDate = new Date(event.time).getTime();
+                        seek(newTimeAsDate - startTime);
+                    }
+                });
             }
 
             return () => {
