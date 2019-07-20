@@ -116,7 +116,14 @@ const AudioTrack = ({
 
     }, [!!timelineRef.current, speakerAnnotations, startTime]);
     return (
-        <Timeline onDoubleClick={togglePlaying} ref={timelineRef} />
+        <div>
+            <Timeline onDoubleClick={togglePlaying} ref={timelineRef} />
+            <div>
+                <p>double click to play/pause</p>
+                <p>drag vertical bar to seek</p>
+                <p>select annotations to drag and resize them</p>
+            </div>
+        </div>
     );
 };
 
