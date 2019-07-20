@@ -4,6 +4,8 @@ import ReactPlayer from 'react-player';
 
 const UPDATE_INTERVAL = 1000/60;
 
+const defaultStyle = { display: 'none' };
+
 const onProgress = (setOffsetMillis: Props['setOffsetMillis']) => ({ playedSeconds }: { playedSeconds: number }) =>
   setOffsetMillis(playedSeconds * 1e3);
 
@@ -28,6 +30,7 @@ const AudioPlayer: React.SFC<Props> = ({
   }, [offsetMillis, !!ref.current]);
   return (
     <ReactPlayer
+      style={defaultStyle}
       playing={isPlaying}
       ref={ref}
       width="100%"
