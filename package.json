@@ -16,6 +16,7 @@
     "react-player": "^1.11.1",
     "react-powerplug": "^1.0.0",
     "react-scripts": "3.0.1",
+    "styled-components": "^4.3.2",
     "typescript": "3.5.3",
     "vis": "^4.21.0"
   },
@@ -41,6 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@types/ramda": "^0.26.15"
+    "@types/ramda": "^0.26.15",
+    "@types/styled-components": "^4.1.18"
   }
 }

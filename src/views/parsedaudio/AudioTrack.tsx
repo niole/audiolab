@@ -1,7 +1,16 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import { groupBy } from 'ramda';
 import { Annotation } from '../../types';
 const vis = require('vis');
+
+const Timeline = styled.div`
+    .vis-time-axis.vis-foreground {
+        > div:last-of-type {
+            display: none;
+        }
+    }
+`;
 
 const colors = ['red', 'blue', 'yellow'];
 const getColor = (index: number): string => {
@@ -107,7 +116,7 @@ const AudioTrack = ({
 
     }, [!!timelineRef.current, speakerAnnotations, startTime]);
     return (
-        <div onDoubleClick={togglePlaying} ref={timelineRef} />
+        <Timeline onDoubleClick={togglePlaying} ref={timelineRef} />
     );
 };
 
