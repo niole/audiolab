@@ -14,8 +14,10 @@ type Props = {
     speakerAnnotations: Annotation[];
     onAnnotationAdjust?: (newAnnotation: Annotation) => Promise<void>;
     seek?: (newOffsetMillis: number) => void;
+    togglePlaying: () => void;
 };
 
+// TODO BAD!!!
 let timeline: any = null;
 
 const AudioTrack = ({
@@ -24,6 +26,7 @@ const AudioTrack = ({
     startTime,
     onAnnotationAdjust,
     seek,
+    togglePlaying,
 }: Props) => {
     const timelineRef: React.RefObject<HTMLDivElement> = React.createRef();
 
@@ -48,7 +51,10 @@ const AudioTrack = ({
             const groups = Object.keys(groupBy(x => x.speakerId.toString(), speakerAnnotations))
                 .map((x: string, index: number) => ({ id: x }));
             const options = {
-                editable: true,
+                editable: {
+                    add: false,
+                    updateTime: true,
+                },
                 selectable: true,
                 start: startTime,
                 multiselect: true,
@@ -101,7 +107,7 @@ const AudioTrack = ({
 
     }, [!!timelineRef.current, speakerAnnotations, startTime]);
     return (
-        <div ref={timelineRef} />
+        <div onDoubleClick={togglePlaying} ref={timelineRef} />
     );
 };
 

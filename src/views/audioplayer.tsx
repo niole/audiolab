@@ -11,11 +11,13 @@ type Props = {
   audioFileURI: string;
   setOffsetMillis: (n: number) => void;
   offsetMillis?: number;
+  isPlaying?: boolean;
 };
 const AudioPlayer: React.SFC<Props> = ({
   offsetMillis,
   audioFileURI,
   setOffsetMillis,
+  isPlaying,
 }) => {
   const ref: React.RefObject<ReactPlayer> = React.createRef();
   React.useEffect(() => {
@@ -26,6 +28,7 @@ const AudioPlayer: React.SFC<Props> = ({
   }, [offsetMillis, !!ref.current]);
   return (
     <ReactPlayer
+      playing={isPlaying}
       ref={ref}
       width="100%"
       progressInterval={UPDATE_INTERVAL}
